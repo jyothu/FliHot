@@ -1,3 +1,3 @@
 <?php
-  $connect = new mysqli("localhost", "root", '', "hotel-checker");
+  $connect = new mysqli('localhost', 'builder', 'tr@velm@ker', 'flihot');
 ?>
