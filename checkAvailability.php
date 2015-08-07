@@ -24,11 +24,16 @@
   if( !empty($availableRooms) ) {
     foreach( $availableRooms["rooms"] as $room ){
       echo "<tr><td>".$room["room_id"]."</td><td>".$room["room_name"]."</td>
-      <td>".implode(",", $room["room_details"])."</td><td>
-      <table class='table table-striped'><th>Plan ID</th><th>Code</th><th>Details</th><th>Rack Rate</th>";
+      <td>".$room["room_details"]."</td><td>
+      <table class='table table-striped'><th>Plan ID</th><th>Code</th><th>Details</th><th>Rack Rate</th><th>Contracted Price</th>";
       foreach( $room["rateplans"] as $rateplan ){
         echo "<tr><td>".$rateplan["rateplan_id"]."</td><td>".$rateplan["code"]."</td>
-        <td>".implode(",", $rateplan["details"])."</td><td>".$rateplan["rack_rate"]."</td></tr>";
+        <td>".$rateplan["details"]."</td><td>".$rateplan["rack_rate"]."</td><td>
+        <table class='table table-striped'><th>Buyer ID</th><th>Price</th><th>Description</th>";
+        foreach( $rateplan["contracted_price_details"] as $price ){
+          echo "<tr><td>".$price["buyer_id"]."</td><td>".$price["price"]."</td><td>".$price["description"]."</td></tr>";
+        }
+        echo "</table></td></tr>";
       }
       echo "</table></td></tr>";
     }
