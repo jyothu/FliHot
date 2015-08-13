@@ -52,7 +52,9 @@ if($flights->Success != 'true' ) {
                 else
                     $flightSegmentz = $flightSegments;
 
-                foreach ($flightSegmentz as $flightSegment) {
+                $flightSegmentzCount = count( $flightSegmentz );
+
+                foreach ($flightSegmentz as $key=>$flightSegment) {
 
                     if( $flightSegment->FlightNumber ){
                         $flightNo = $flightSegment->FlightNumber;
@@ -64,10 +66,13 @@ if($flights->Success != 'true' ) {
                         $arrTime = $flightSegment->ArrivalDateTime;
                         $cabin = $flightSegment->CabinClassCode;
                         $seatsRemaining = $flightSegment->SeatsRemaining->Number;
-                        $html = "<tr><td><span class='display-block'>Total Fare per person : ".$totalFare." ".$totalFareCurrency."</span>";
-                        $html .= "<span class='display-block'>Refundable : ".$refundable."</span>";
-                        $html .= "<span class='display-block'>Is Passport Mandatory : ".($passportMandatory == true ? 'Yes' : 'No')."</span>";
-                        $html .= "<span class='display-block'>Ticket Type : ".$ticketType."</span></td>";
+                        $html = "<tr>";
+                        if( $key == 0 ) {
+                            $html .= "<td rowspan=".$flightSegmentzCount."><span class='display-block'>Total Fare per person : ".$totalFare." ".$totalFareCurrency."</span>";
+                            $html .= "<span class='display-block'>Refundable : ".$refundable."</span>";
+                            $html .= "<span class='display-block'>Is Passport Mandatory : ".($passportMandatory == true ? 'Yes' : 'No')."</span>";
+                            $html .= "<span class='display-block'>Ticket Type : ".$ticketType."</span></td>";
+                        }
                         $html .= "<td><span class='display-block'>".$flightCode." ".$flightNo."</span>";
                         $html .= "<span class='display-block'>Class : ".$cabin."</span>";
                         $html .= "<span class='display-block'>Duration : ".$duration." Minutes</span></td>";
@@ -82,9 +87,10 @@ if($flights->Success != 'true' ) {
             }
         }
 
+
     }
 
-    $tableHeader = "<table class='table table-striped'><th>Itinerary Details</th><th>Flight No.</th><th>Departure</th>
+    $tableHeader = "<table class='table table-bordered'><th>Itinerary Details</th><th>Flight No.</th><th>Departure</th>
     <th>Arrival</th><th>Seats Available</th>";
 
     echo "<div class='itinerary col-sm-12'>";
