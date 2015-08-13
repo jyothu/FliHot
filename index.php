@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hotel Checker</title>
+    <title>FliHot - Home Page</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -33,11 +33,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Hotel Checker</a>
+          <a class="navbar-brand" href="index.php">FliHot</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.php?act=form">Check Hotels</a></li>
+            <li class="<?php echo $_GET['act'] == 'hotels' ? 'active' : '' ?>"><a href="index.php?act=hotels">Hotels</a></li>
+            <li class="<?php echo $_GET['act'] == 'flights' ? 'active' : '' ?>"><a href="index.php?act=flights">Flights</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -46,9 +47,12 @@
     <div class="container">
      <?php
        switch (htmlspecialchars($_GET["act"])) {
-       	case 'form':
-       		include "form.php";
+       	case 'hotels':
+       		include "hotels.php";
        		break;
+        case 'flights':
+          include "flights.php";
+          break;
        	default:
        		include "home.php";
        		break;

@@ -1,0 +1,13 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mys="Mystifly.OnePoint" xmlns:mys1="http://schemas.datacontract.org/2004/07/Mystifly.OnePoint">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mys:CreateSession>
+         <mys:rq>
+            <mys1:AccountNumber>%AccountNumber%</mys1:AccountNumber>
+            <mys1:Password>%Password%</mys1:Password>
+            <mys1:Target>%Target%</mys1:Target>
+            <mys1:UserName>%UserName%</mys1:UserName>
+         </mys:rq>
+      </mys:CreateSession>
+   </soapenv:Body>
+</soapenv:Envelope>

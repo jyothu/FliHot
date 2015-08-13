@@ -17,6 +17,24 @@
     margin-bottom: 25px;
 }
 
+.itinerary{
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.flight{
+  background: none repeat scroll 0 0 #f9f9f9;
+  padding: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.display-block{
+    display: block;
+}
+
 body{
   background-color: #f9f9f9;
 }

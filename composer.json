@@ -1,0 +1,11 @@
+{
+    "require": {
+        "openlss/lib-array2xml": "^0.0.9"
+    },
+
+    "autoload": {
+        "classmap": [
+            "lib/"
+        ]
+    }
+}

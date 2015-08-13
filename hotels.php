@@ -1,7 +1,7 @@
 <?php
 include 'db/db.php';
-  $query = 'SELECT id,name FROM `cities`';
-  $cities = $connect->query($query) or trigger_error($connect->error."[$query]");
+$query = 'SELECT id,name FROM `cities`';
+$cities = $connect->query($query) or trigger_error($connect->error."[$query]");
 ?>
 <div class="col-sm-12 search-form">
 
